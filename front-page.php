@@ -1,51 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>CS4MS</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
-        type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <?php
-    wp_head();
-    ?>
-</head>
-
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="#page-top">CS4MS</a>
-            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
-                data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-                aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="events.html">Events</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="community.html">Community</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="educators.html">Educators</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="news.html">News</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<?php
+get_header();
+?>
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
@@ -63,10 +18,11 @@
             <p class="masthead-subheading font-weight-light mb-0">Computer Science for Mississippi</p>
         </div>
     </header>
-    <!-- Portfolio Section-->
-    <section class="page-section portfolio" id="portfolio">
+
+    <!-- Media Section-->
+    <section class="page-section portfolio" id="media">
         <div class="container">
-            <!-- Portfolio Section Heading-->
+            <!-- Media Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Media</h2>
             <!-- Icon Divider-->
             <div class="divider-custom">
@@ -74,28 +30,10 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
-            <!-- Portfolio Grid Items-->
+            <!-- Media Grid Items-->
             <div class="">
 
             </div>
-
-            <style>
-                .iframe-container {
-                    position: relative;
-                    width: 100%;
-                    overflow: hidden;
-                    padding-top: 56.25%;
-                    /* 16:9 Aspect Ratio (height / width) */
-                }
-
-                .iframe-container iframe {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                }
-            </style>
 
             <div class="container">
                 <div class="row">
@@ -111,6 +49,7 @@
             </div>
         </div>
     </section>
+
     <!-- About Section-->
     <section class="page-section bg-primary text-white mb-0" id="about">
         <div class="container">
@@ -122,35 +61,36 @@
                 <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                 <div class="divider-custom-line"></div>
             </div>
+
             <!-- About Section Content-->
             <div class="row">
-                <div class="col-lg-4 ms-auto">
-                    <div class="container p-5 text-center">
-                        <img src="https://api.multiavatar.com/Starcrasher.png" class="rounded img-fluid" alt="...">
-                        <h2 class="mt-4">Shelly Hollis</h2>
-                        <p class="lead">Director for the Center for Cyber Education</p>
-                    </div>
-                    <div class="container p-5 text-center">
-                        <img src="https://api.multiavatar.com/Starcrasher.png" class="rounded img-fluid" alt="...">
-                        <h2 class="mt-4">Shelly Hollis</h2>
-                        <p class="lead">Director for the Center for Cyber Education</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 me-auto">
-                    <div class="container p-5 text-center">
-                        <img src="https://api.multiavatar.com/Starcrasher.png" class="rounded img-fluid" alt="...">
-                        <h2 class="mt-4">Shelly Hollis</h2>
-                        <p class="lead">Director for the Center for Cyber Education</p>
-                    </div>
-                    <div class="container p-5 text-center">
-                        <img src="https://api.multiavatar.com/Starcrasher.png" class="rounded img-fluid" alt="...">
-                        <h2 class="mt-4">Shelly Hollis</h2>
-                        <p class="lead">Director for the Center for Cyber Education</p>
+                <?php
+                $staff_query = new WP_Query(array('post_type' => 'staff'));
+
+                if ($staff_query->have_posts()) :
+                    while ($staff_query->have_posts()) : $staff_query->the_post();
+                ?>
+
+                <div class="staff-member">
+                    <div class="col-lg-4 me-auto">
+                        <div class="container p-5 text-center">
+                            <img src="<?php get_field('staff_profile')[0]; // Display staff member's profile picture ?>" class="rounded img-fluid" alt="...">
+                            <h2 class="mt-4"><?php the_field('staff_name'); // Display staff member's name ?></h2>
+                            <p class="lead"><?php the_field('staff_title'); // Display staff member's title ?></p>
+                        </div>
                     </div>
                 </div>
+
+                <?php endwhile;
+                wp_reset_postdata();
+                else :
+                    echo 'No staff members found.';
+                endif;
+                ?>
             </div>
         </div>
     </section>
+
     <!-- Contact Section-->
     <section class="page-section" id="contact">
         <div class="container">
@@ -228,48 +168,6 @@
             </div>
         </div>
     </section>
-    <!-- Footer-->
-    <footer class="footer text-center">
-        <div class="container">
-            <div class="row">
-                <!-- Footer Location-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Location</h4>
-                    <p class="lead mb-0">
-                        301 Research Blvd
-                        <br />
-                        Starkville, MS 39759
-                    </p>
-                </div>
-                <!-- Footer Social Icons-->
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase mb-4">Around the Web</h4>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i
-                            class="fab fa-fw fa-facebook-f"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i
-                            class="fab fa-fw fa-linkedin-in"></i></a>
-                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
-                </div>
-                <!-- Footer About Text-->
-                <div class="col-lg-4">
-                    <h4 class="text-uppercase mb-4">About</h4>
-                    <p class="lead mb-0">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error suscipit officiis ex iure quia, atque fugit consequatur ea illum culpa itaque repudiandae est dolore doloremque temporibus aspernatur! Ut, maiores laboriosam.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright &copy; CS4MS 2023</small></div>
-    </div>
-
-    <?php
-    wp_footer();
-    ?>
-</body>
-
-</html>
+<?php
+get_footer();
+?>
