@@ -12695,20 +12695,21 @@ html {
   margin-top: 1rem;
 }
 
-#mainNav .navbar-nav li.nav-item a.nav-link {
+#mainNav .navbar-nav li a {
+  text-decoration: none;
   color: #fff;
 }
 
-#mainNav .navbar-nav li.nav-item a.nav-link:hover {
+#mainNav .navbar-nav li a:hover {
   color: #00a59c;
 }
 
-#mainNav .navbar-nav li.nav-item a.nav-link:active,
-#mainNav .navbar-nav li.nav-item a.nav-link:focus {
+#mainNav .navbar-nav li a:active,
+#mainNav .navbar-nav li a:focus {
   color: #fff;
 }
 
-#mainNav .navbar-nav li.nav-item a.nav-link.active {
+#mainNav .navbar-nav li a.active {
   color: #00a59c;
 }
 
@@ -12733,14 +12734,14 @@ html {
     margin-top: 0;
   }
 
-  #mainNav .navbar-nav>li.nav-item>a.nav-link.active {
+  #mainNav .navbar-nav>li>a.active {
     color: #fff;
     background: #00a59c;
   }
 
-  #mainNav .navbar-nav>li.nav-item>a.nav-link.active:active,
-  #mainNav .navbar-nav>li.nav-item>a.nav-link.active:focus,
-  #mainNav .navbar-nav>li.nav-item>a.nav-link.active:hover {
+  #mainNav .navbar-nav>li>a.active:active,
+  #mainNav .navbar-nav>li>a.active:focus,
+  #mainNav .navbar-nav>li>a.active:hover {
     color: #fff;
     background: #00a59c;
   }
@@ -12791,6 +12792,15 @@ html {
 
 .masthead .masthead-avatar {
   width: 15rem;
+}
+
+.masthead-background-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 @media (min-width: 992px) {
