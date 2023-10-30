@@ -106,7 +106,14 @@ get_header();
         <!-- Contact Section Form-->
         <div class="row justify-content-center">
             <div class="col-lg-8 col-xl-7">
-                <?php echo do_shortcode('[contact-form-7 id="7afd3cf" title="Main Contact Form"]'); ?>
+                <?php 
+                $contact_form_id = get_theme_mod('corporafun_contact_form_id', '');
+                $contact_form_title = get_theme_mod('corporafun_contact_form_title', '');
+                
+                if($contact_form_id && $contact_form_title) {
+                    echo do_shortcode('[contact-form-7 id="' . esc_attr($contact_form_id) . '" title="' . esc_attr($contact_form_title) . '"]');
+                }
+                ?>
             </div>
         </div>
     </div>

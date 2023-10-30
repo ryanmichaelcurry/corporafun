@@ -114,6 +114,35 @@ function corporafun_customize_register( $wp_customize ) {
         'type'     => 'textarea',
         'priority' => 40,
     ) );
+    
+
+    // Contact Form 7 Customizer Settings
+    $wp_customize->add_section('corporafun_contact_form_7', array(
+        'title'       => __('Contact Form 7', 'corporafun'),
+        'priority'    => 50,
+    ));
+
+    $wp_customize->add_setting('corporafun_contact_form_id', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('corporafun_contact_form_id', array(
+        'label'    => __('Form ID', 'corporafun'),
+        'section'  => 'corporafun_contact_form_7',
+        'type'     => 'text',
+    ));
+
+    $wp_customize->add_setting('corporafun_contact_form_title', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('corporafun_contact_form_title', array(
+        'label'    => __('Form Title', 'corporafun'),
+        'section'  => 'corporafun_contact_form_7',
+        'type'     => 'text',
+    ));
 }
 add_action( 'customize_register', 'corporafun_customize_register' );
 
