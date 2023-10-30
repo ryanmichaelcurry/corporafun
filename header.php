@@ -33,14 +33,14 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 
                     <?php
-                        wp_nav_menu(
-                            array(
-                                'menu' => 'primary',
-                                'container' => '',
-                                'theme_location' => 'primary',
-                                'items_wrap' => '<ul class="navbar-nav ms-auto">%3$s</ul>'
-                            )
-                        );
+                        wp_nav_menu(array(
+                            'menu' => 'primary',
+                            'walker'         => new Custom_Walker_Nav_Menu(),
+                            'container'      => false,
+                            'theme_location' => 'primary',
+                            'items_wrap' => '<ul class="navbar-nav ms-auto">%3$s</ul>'
+                        ));
+                        
                     ?>
                 <!--
                     <ul class="navbar-nav ms-auto">
