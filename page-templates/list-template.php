@@ -66,10 +66,10 @@ Template Name: List Page
                 <article class="post-preview pt-3">
                     <a class="post-heading" href="<?php the_permalink(); ?>">
                         <h1 class="post-title"><?php the_title(); ?></h1>
-                        <h4 class="post-subtitle"><?php the_excerpt(); ?></h4>
+                        <p class=""><?php the_excerpt(); ?></p>
                     </a>
                     <p class="post-meta">
-                        Posted by <?php the_author(); ?> on <?php the_date(); ?> · 
+                        Posted by <?php the_author(); ?> on <?php the_date(); ?>
                     </p>
                 </article>
                 <hr>
@@ -88,7 +88,7 @@ Template Name: List Page
 
                 <!-- Pager -->
                 <div class="clearfix">
-                    <div class="pagination">
+                    <div class="pagination d-flex flex-row gap-2 fs-4">
                         <?php
                         echo paginate_links(array(
                             'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
