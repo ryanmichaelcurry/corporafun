@@ -12962,3 +12962,14 @@ section {
   width: 100%;
   height: 100%;
 }
+
+.tab-item-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 120px; /* Fixed height */
+  line-height: 120px; /* Center the text vertically */
+  box-sizing: border-box;
+  margin-left: 32px;
+  margin-right: 32px;
+}

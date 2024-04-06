@@ -13,7 +13,7 @@ class Custom_Tabs_Menu_Walker extends Walker_Nav_Menu {
         // Assuming the featured image URL is saved as a custom field with the name 'menu_item_image'
         $image_url = get_the_post_thumbnail_url($item->object_id, 'full');
         $output .= '<img class="img-fluid" src="' . esc_url($image_url) . '" alt="' . esc_attr($item->title) . '" />';
-        $output .= '<h1 class="text-center pt-3 pb-3 text-white">' . esc_html($item->title) . '</h1>';
+        $output .= '<h1 class="tab-item-title text-center pt-3 pb-3 text-white">' . esc_html($item->title) . '</h1>';
         $output .= '</a>';
         $output .= '</div>';
     }

@@ -21,8 +21,6 @@ function corporafun_menus() {
     $locations = array(
         'primary' => "Primary Navbar Items",
         'footer' => "Footer Menu Items",
-        'educators' => "Tabs Menu for Educators",
-        'community' => "Tabs Menu for Community",
     );
 
     register_nav_menus($locations);

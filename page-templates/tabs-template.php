@@ -81,7 +81,7 @@ if ($query->have_posts()):
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-arrow-up-right-from-square fa-3x"></i></div>
                             </div>
                             <img class="img-fluid" src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>" />
-                            <h1 class="text-center pt-3 pb-3 text-white"><?php the_title(); ?></h1>
+                            <h1 class="tab-item-title text-center pt-3 pb-3 text-white"><?php the_title(); ?></h1>
                         </a>
                     </div>
 
