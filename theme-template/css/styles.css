@@ -12799,7 +12799,7 @@ html {
 
 .masthead-background-image {
   background-repeat: no-repeat;
-  background-position: center; 
+  background-position: center;
 }
 
 @media (min-width: 992px) {
@@ -12963,12 +12963,19 @@ section {
 }
 
 .tab-item-title {
-  white-space: nowrap;
+  line-height: 1.5em;
+  /* Ensures that each line has 1.5 times the font size in height */
+  height: 3.5em;
+  /* Double the line-height to enforce two lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* This property sets the number of lines in a block element */
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 120px; /* Fixed height */
-  line-height: 120px; /* Center the text vertically */
+  white-space: normal;
+  /* Adjust padding as needed */
   box-sizing: border-box;
-  margin-left: 32px;
-  margin-right: 32px;
+  width: 100%;
+  /* Ensure the element is wide enough to potentially hold two lines */
 }

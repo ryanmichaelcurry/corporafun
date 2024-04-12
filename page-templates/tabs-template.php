@@ -51,6 +51,8 @@ get_header();
     $args = array(
         'posts_per_page' => -1, // fetch all posts
         'category_name'  => $category_to_display,
+        'orderby'        => 'title',  // Order by post title
+        'order'          => 'ASC'     // Ascending order
     );
 
 $query = new WP_Query($args);

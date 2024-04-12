@@ -52,21 +52,3 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
-
-
-window.onload = function() {
-    var titles = document.querySelectorAll('.tab-item-title');
-    titles.forEach(title => {
-        resizeText(title);
-    });
-};
-
-function resizeText(element) {
-    var maxWidth = element.offsetWidth;
-    var currentSize = parseFloat(window.getComputedStyle(element, null).getPropertyValue('font-size'));
-    while (element.scrollWidth > maxWidth && currentSize > 10) {
-        currentSize -= 1;
-        element.style.fontSize = currentSize + 'px';
-        if (currentSize <= 10) break; // Avoids excessively small font
-    }
-}
